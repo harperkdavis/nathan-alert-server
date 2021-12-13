@@ -4,7 +4,7 @@ const port = 3000;
 
 let status = false;
 
-app.get('/status', (req, res) => {
+app.get('/', (req, res) => {
     res.send(status ? "clear" : "not clear");
 });
 
