@@ -1,11 +1,11 @@
 const express = require('express');
 const app = express();
-const port = 3000;
+const port = 80;
 
 let status = false;
 
-app.get('/', (req, res) => {
-    res.send(status ? "clear" : "not clear");
+app.get('/status', (req, res) => {
+    res.send({'clear': status});
 });
 
 app.post("/update", (req, res) => {
@@ -18,5 +18,5 @@ app.post("/update", (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log('Nathan alerter running at http://localhost:3000');
+    console.log('Nathan alerter running!');
 });
