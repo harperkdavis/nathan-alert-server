@@ -1,8 +1,16 @@
 const express = require('express');
+var cors = require('cors');
 const app = express();
 const port = process.env.PORT || 3000;
 
+app.use(cors());
+
 let status = false;
+
+app.get('/products/:id', function (req, res, next) {
+    res.json({msg: 'This is CORS-enabled for all origins!'})
+});
+
 
 app.get('/status', (req, res) => {
     res.send({'clear': status});
